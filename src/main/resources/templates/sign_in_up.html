@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in || Sign up</title>
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Enlace a main.css para estilos globales -->
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/sign-in-up.css">
+</head>
+<body>
+    <header>
+        <h1>Plantilla Pagina</h1>
+        <a href="interfaz">punto</a>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="acerca">Acerca de</a></li>
+                <li><a href="contacto">Contacto</a></li>
+                <li><a href="sign_in_up" class="active">Login-Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    
+    <div class="formulario-contenedor">
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="/register" method="post">
+                    <h1>Register</h1>
+                
+                    <div class="infield">
+                        <input type="text" name="nombre" placeholder="Name" required />
+                        <label></label>
+                    </div>
+                    <div class="infield">
+                        <input type="email" name="email" placeholder="Email" required />
+                        <label></label>
+                    </div>
+                    <div class="infield">
+                        <input type="password" name="contrasenia" placeholder="Password" required />
+                        <label></label>
+                    </div>
+                    <p th:if="${mensaje}" th:text="${mensaje}" class="mensaje-exito"></p>
+                    <button type="submit">Registrarse</button>
+                </form>
+                
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="/login" method="post">
+                    <h1>Inicia Sesion</h1>
+                    <div class="infield">
+                        <input type="email" name="email" placeholder="Email" required />
+                        <label></label>
+                    </div>
+                    <div class="infield">
+                        <input type="password" name="contrasenia" placeholder="Password" required />
+                        <label></label>
+                    </div>
+                    <a href="#" class="forgot">Olvidaste tu contraseña?</a>
+                    <p th:if="${error}" th:text="${error}" class="mensaje-error"></p>
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+
+                
+            </div>
+            <div class="overlay-container" id="overlayCon">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>¿Tienes cuenta?</h1>
+                        <p></p>
+                        <button>Login</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Aviso</h1>
+                        <p>Si aun no tienes cuenta, Porfavor registrese en el sistema</p>
+                        <button>Registrate</button>
+                    </div>
+                </div>
+                <button id="overlayBtn"></button>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    
+    <!-- Footer -->
+    <footer>
+        <ul>
+            <li><a href="#">Términos</a></li>
+            <li><a href="#">Documentos</a></li>
+            <li><a href="#">Contactos</a></li>
+        </ul>
+        <p>&copy; 2024 Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        const container = document.getElementById('container');
+        const overlayCon = document.getElementById('overlayCon');
+        const overlayBtn = document.getElementById('overlayBtn');
+        overlayBtn.addEventListener ('click', ()=>{
+            container.classList.toggle('right-panel-active');
+
+            overlayBtn.classList.remove('btnScaled');
+            window.requestAnimationFrame(()=>{
+                overlayBtn.classList.add('btnScaled');
+            })
+        });
+    </script>
+
+</body>
+</html>

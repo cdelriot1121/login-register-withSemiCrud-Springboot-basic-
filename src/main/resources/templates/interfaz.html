@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/interfaz.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i data-lucide="layout"></i>
+                <h1>Barra lateral</h1>
+            </div>
+            <nav>
+                <button class="btn btn-ghost"><i data-lucide="list"></i> Tareas</button>
+                <button class="btn btn-ghost"><i data-lucide="users"></i> Clientes</button>
+                <button class="btn btn-ghost"><i data-lucide="settings"></i> Configuración</button>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <!-- Barra superior -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="search" placeholder="Buscar tareas...">
+                    <button class="btn btn-outline"><i data-lucide="search"></i></button>
+                </div>
+                <div class="user-menu">
+                    <button class="btn btn-ghost btn-icon"><i data-lucide="bell"></i></button>
+                    <div class="separator"></div>
+                    <div class="avatar">
+                        <img src="https://via.placeholder.com/40" alt="Avatar del usuario">
+                    </div>
+                    <button class="btn btn-ghost">Usuario <i data-lucide="chevron-down"></i></button>
+                </div>
+            </header>
+
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2>Tareas</h2>
+                    <button class="btn btn-primary"><i data-lucide="plus"></i> Nueva Tarea</button>
+                </div>
+                <p class="card-description">Gestiona tus tareas y proyectos</p>
+                <div class="card-content">
+                    <div id="taskList" class="task-list">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/interfaz.js"></script>
+</body>
+</html>
